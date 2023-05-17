@@ -1,0 +1,28 @@
+.main {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 11;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+.form {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 200px;
+    gap: 20px;
+    align-items: center;
+}
+.field {
+    width: 600px;
+    height: 40px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    background-color: rgb(243, 241, 241);
+}

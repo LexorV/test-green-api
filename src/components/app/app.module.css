@@ -1,0 +1,14 @@
+.main {
+  display: flex;
+    justify-content: center;
+}
+.field {
+  margin-top: 300px;
+  width: 600px;
+  height: 40px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  background-color: rgb(243, 241, 241);
+}
