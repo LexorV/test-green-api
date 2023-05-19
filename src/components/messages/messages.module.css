@@ -1,0 +1,10 @@
+.messages {
+    width: 300px;
+    background-color: aliceblue;
+    min-height: 60px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.messages_my  {
+background-color: rgb(200, 200, 247);
+}

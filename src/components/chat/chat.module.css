@@ -1,0 +1,27 @@
+.chat {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    min-height: 300px;
+    background-color:  rgb(243, 241, 241);
+    justify-content: end;
+    padding: 40px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.field {
+    width: 300px;
+    resize:none;
+}
+.chat_list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style-type: none;
+
+}
