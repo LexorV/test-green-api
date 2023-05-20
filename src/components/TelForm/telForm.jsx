@@ -6,7 +6,7 @@ import { checkWhatsapp } from '../../services/greenApi';
 import { validationTel, exceptionPlus } from '../../services/validation';
 
 const TelForm = ({ setTel, apiData }) => {
-  const [telField, setTelField] = useState(null);
+  const [telField, setTelField] = useState('');
   const [error, setError] = useState('');
   const saveData = async (e) => {
     e.preventDefault();
@@ -30,7 +30,7 @@ const TelForm = ({ setTel, apiData }) => {
            <BasicField
                  onChange={setTelField}
                  value={telField}
-                 heading='Ваш id в green-API'
+                 heading='Телефон отправки сообщений'
                  name='tel'
                  type='number'
                  error = {error}

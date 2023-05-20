@@ -30,7 +30,6 @@ const Chat = ({ ApiData, numberTel }) => {
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    // await console.log({ ApiData, numberTel });
     try {
       await sendText(ApiData, numberTel, message);
       setChatMessger([...chatMessger, { type: 'outgoing', textMessage: message }]);
@@ -44,7 +43,7 @@ const Chat = ({ ApiData, numberTel }) => {
           <h3 className={styles.heading}>телефон: {`+${numberTel}`}</h3>
           <ul className={styles.chat_list}>
          {chatMessger.reverse().map((el) => (
-          <Messages messages={el} key={el.timestamp} />
+          <Messages messages={el} key={Date + Math.random() * (1000 - 1) + 1} />
          ))}
           </ul>
             <form className={styles.form} onSubmit={sendMessage}>

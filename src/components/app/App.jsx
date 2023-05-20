@@ -7,7 +7,6 @@ import Chat from '../chat/chat';
 function App() {
   const [indefectionData, setIndefectionData] = useState(null);
   const [tel, setTel] = useState(null);
-  console.log(indefectionData);
   return (
     <main className={styles.main}>
     {!tel && (<TellForm setTel={setTel} apiData={indefectionData} />)}
