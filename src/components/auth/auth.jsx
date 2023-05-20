@@ -3,7 +3,7 @@ import styles from './auth.module.css';
 import BasicButton from '../ui/button/basicButton/basicButton';
 import { getStateInstance } from '../../services/greenApi';
 import { BasicField } from '../ui/field/basicField';
-import validation from '../../services/validation';
+import { validation } from '../../services/validation';
 
 const Auth = ({ setDataApi }) => {
   const [token, setToken] = useState('');
@@ -52,7 +52,7 @@ const Auth = ({ setDataApi }) => {
                  placeholder='token'
                  />
                  <BasicButton type='submit' name='Сохранить' />
-                 <div>{globalError}</div>
+                 <div className={styles.error}>{globalError}</div>
             </form>
         </section>
   );

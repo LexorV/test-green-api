@@ -1,6 +1,7 @@
 .main {
   display: flex;
-    justify-content: center;
+  justify-content: center;
+  height: 100%;
 }
 .field {
   margin-top: 300px;

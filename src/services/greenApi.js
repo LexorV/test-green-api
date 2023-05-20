@@ -47,3 +47,14 @@ export const getStateInstance = (indefectionData) => fetch(`${urlServ}/waInstanc
   ]),
 })
   .then(checkResponse);
+
+export const checkWhatsapp = (indefectionData, numberTel) => fetch(`${urlServ}/waInstance${indefectionData.idInstans}/checkWhatsapp/${indefectionData.token}`, {
+  method: 'POST',
+  headers: new Headers([
+    ['Content-Type', 'application/json'],
+  ]),
+  body: JSON.stringify({
+    phoneNumber: numberTel,
+  }),
+})
+  .then(checkResponse);

@@ -1,4 +1,4 @@
-const validation = (valueField, size = 200) => {
+export const validation = (valueField, size = 200) => {
   if (valueField === '') {
     return { isError: true, ErrorText: 'Поле не должно быть пустым' };
   }
@@ -8,4 +8,13 @@ const validation = (valueField, size = 200) => {
 
   return { isError: false, ErrorText: '' };
 };
-export default validation;
+export const validationTel = (tel, size) => {
+  if (tel === '') {
+    return { isError: true, ErrorText: 'Поле не должно быть пустым' };
+  }
+  if (String(tel).length < size) {
+    return { isError: true, ErrorText: 'Некорректный формат телефона' };
+  }
+  return { isError: false, ErrorText: '' };
+};
+export const exceptionPlus = (tel) => String(tel).split('').filter((el) => el !== '+').join('');

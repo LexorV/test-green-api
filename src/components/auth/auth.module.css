@@ -26,3 +26,6 @@
     border: none;
     background-color: rgb(243, 241, 241);
 }
+.error {
+    color: red;
+}

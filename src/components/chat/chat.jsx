@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './chat.module.css';
 import {
-  sendText, recevingChat, receiveNotification, deleteNotification,
+  sendText, receiveNotification, deleteNotification,
 } from '../../services/greenApi';
 import BasicButton from '../ui/button/basicButton/basicButton';
 import Messages from '../messages/messages';
@@ -41,16 +41,15 @@ const Chat = ({ ApiData, numberTel }) => {
   };
   return (
         <div className={styles.chat}>
-          <h3>телефон: {`+${numberTel}`}</h3>
+          <h3 className={styles.heading}>телефон: {`+${numberTel}`}</h3>
           <ul className={styles.chat_list}>
          {chatMessger.reverse().map((el) => (
           <Messages messages={el} key={el.timestamp} />
          ))}
-
           </ul>
             <form className={styles.form} onSubmit={sendMessage}>
                 <textarea className={styles.field} type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
-                <BasicButton name='отправить' type='submit'/>
+                <BasicButton name='отправить' disabled={message === ''} type='submit'/>
             </form>
         </div>
   );

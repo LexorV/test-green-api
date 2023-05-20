@@ -10,7 +10,7 @@ function App() {
   console.log(indefectionData);
   return (
     <main className={styles.main}>
-    {!tel && (<TellForm setTel={setTel} />)}
+    {!tel && (<TellForm setTel={setTel} apiData={indefectionData} />)}
     {!indefectionData && (<Auth setDataApi={setIndefectionData} />)}
     {tel && indefectionData && (<Chat ApiData = {indefectionData} numberTel = {tel} />)}
     </main>
