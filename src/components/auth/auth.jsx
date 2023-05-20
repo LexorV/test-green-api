@@ -1,36 +1,59 @@
 import React, { useState } from 'react';
 import styles from './auth.module.css';
 import BasicButton from '../ui/button/basicButton/basicButton';
+import { getStateInstance } from '../../services/greenApi';
+import { BasicField } from '../ui/field/basicField';
+import validation from '../../services/validation';
 
 const Auth = ({ setDataApi }) => {
   const [token, setToken] = useState('');
   const [idInstans, setIdinstas] = useState('');
-  const onFormChange = (e) => {
-    if (e.target.name === 'token') { setToken(e.target.value); } else setIdinstas(e.target.value);
-  };
-  const saveData = () => {
-    setDataApi({ token, idInstans });
+  const [globalError, setGlobalError] = useState('');
+  const [tokenError, setTokenError] = useState('');
+  const [idInstansError, setIdInstans] = useState('');
+  const saveData = async (e) => {
+    e.preventDefault();
+    const field1 = validation(idInstans, 10);
+    const field2 = validation(token, 50);
+    setIdInstans(field1.ErrorText);
+    setTokenError(field2.ErrorText);
+    if (!field1.isError && !field2.isError) {
+      try {
+        const res = await getStateInstance({ token, idInstans });
+        if (res) {
+          setDataApi({ token, idInstans });
+        }
+      } catch (err) {
+        setGlobalError('Неправильный токен или id');
+        console.log(err.message);
+      }
+    }
   };
 
   return (
         <section className={styles.main}>
-            <div className={styles.form}>
-                <input className={styles.field} id='id'
-                 type='number'
-                 placeholder='id'
+            <form className={styles.form} onSubmit={saveData}>
+            <BasicField
+                 onChange={setIdinstas}
+                 value={idInstans}
+                 heading='Ваш id в green-API'
                  name='idInstans'
-                 onChange={onFormChange}
-                 value={idInstans} />
-                <input
-                className={styles.field}
-                id='token'
-                 type='text'
+                 type='number'
+                 error = {idInstansError}
+                 placeholder='id'
+                 />
+                 <BasicField
+                 onChange={setToken}
+                 value={token}
+                 heading='токен'
+                 name='токен'
+                 type='текст'
+                 error = {tokenError}
                  placeholder='token'
-                 name='token'
-                 onChange={onFormChange}
-                 value={token} />
-                 <BasicButton onClick={saveData} name='Сохранить' />
-            </div>
+                 />
+                 <BasicButton type='submit' name='Сохранить' />
+                 <div>{globalError}</div>
+            </form>
         </section>
   );
 };

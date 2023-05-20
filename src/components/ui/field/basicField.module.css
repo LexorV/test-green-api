@@ -1,0 +1,21 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.field {
+    width: 600px;
+    height: 40px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    background-color: rgb(243, 241, 241);
+}
+.heading {
+    font-size: 18px;
+}
+
+.error {
+    color: red;
+}

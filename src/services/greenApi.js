@@ -39,3 +39,11 @@ export const recevingChat = (indefectionData, numberTel, count) => fetch(`${urlS
   }),
 })
   .then(checkResponse);
+
+export const getStateInstance = (indefectionData) => fetch(`${urlServ}/waInstance${indefectionData.idInstans}/getStateInstance/${indefectionData.token}`, {
+  method: 'GET',
+  headers: new Headers([
+    ['Content-Type', 'application/json'],
+  ]),
+})
+  .then(checkResponse);
