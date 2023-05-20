@@ -1,0 +1,27 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.field {
+    min-width: 600px;
+    height: 40px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    background-color: rgb(243, 241, 241);
+}
+@media screen and (max-width: 700px) {
+    .field {
+    min-width: 250px;
+    }
+}
+
+.heading {
+    font-size: 18px;
+}
+
+.error {
+    color: red;
+}
